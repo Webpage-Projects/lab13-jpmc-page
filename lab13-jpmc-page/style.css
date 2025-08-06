@@ -1,0 +1,725 @@
+/*BASICS*/
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+:root {
+  --navL: #003366;
+  --bodyL: #444fad;
+  --accentL: #824e2e;
+
+  --navD: #282a36;
+  --bodyD: #1e1e2e;
+  --divsD: #1e2a38;
+  --accentD: #00acc1;
+  /*--accentD: orange;*/
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/*BODY*/
+body {
+  display: flex;
+  background: var(--bodyL);
+  width: 100%;
+  height: auto;
+}
+body.dark {
+  background: var(--bodyD);
+}
+
+/*NAV*/
+nav {
+  max-width: max-content;
+  background: var(--navL);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1rem;
+  height: 100svh;
+  position: sticky;
+  top: 0;
+}
+body.dark nav {
+  background: var(--navD);
+}
+
+nav .top,
+nav .bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+/*NAV TOP*/
+.JPMC {
+  font-family: "Playfair Display", serif;
+  font-weight: 400;
+  font-size: 2rem;
+  text-align: center;
+}
+.hamburger {
+  display: none;
+}
+a:not(.addBtn) {
+  text-decoration: none;
+  color: white;
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  transition: all 200ms ease-in;
+}
+.addBtn {
+  color: white;
+  text-decoration: none;
+}
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+/*NAV BOTTOM*/
+nav button {
+  color: white;
+  background: var(--accentL);
+  border-radius: 1rem;
+  padding: 0.5rem;
+  font-size: 1.25rem;
+  transition: all 200ms ease-in;
+}
+body.dark nav button {
+  background: var(--accentD);
+}
+.user {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  font-size: 1.5rem;
+}
+img {
+  width: 50px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+}
+.modeSwitch label {
+  font-size: 1.25rem;
+}
+
+/*OVERVIEW*/
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  width: 100%;
+}
+.dashboard div {
+  margin-bottom: 0.5rem;
+}
+
+/*DASHBOARD TOP*/
+.dashboard .top {
+  display: flex;
+  justify-content: space-between;
+}
+.top h1 {
+  color: white;
+}
+select {
+  font-size: 1.25rem;
+  border-radius: 0.75rem;
+  padding-left: 0.5rem;
+}
+
+/*Balance Income Expenses*/
+.balIncExp {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+}
+.balIncExp div {
+  background: white;
+  padding: 1rem;
+  border-radius: 1rem;
+}
+body.dark .balIncExp div {
+  background: var(--divsD);
+}
+.balIncExp label {
+  font-size: 1.25rem;
+}
+body.dark .balIncExp label {
+  color: #dddddd;
+}
+.balIncExp p {
+  color: var(--accentL);
+  font-size: 2rem;
+  text-align: center;
+  font-weight: 600;
+}
+body.dark .balIncExp p {
+  color: var(--accentD);
+}
+
+/*Transactions Visualizations Recurring Bills*/
+.transVisRec {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+/*TRANSACTIONS*/
+.trans {
+  background: white;
+  border-radius: 1rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+body.dark .trans {
+  background: var(--divsD);
+  color: white;
+}
+.trans .top,
+.vis .top,
+.rec .top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.trans .top h1,
+.vis .top h1,
+.rec .top h1 {
+  color: black;
+}
+body.dark .trans .top h1,
+body.dark .vis .top h1,
+body.dark .rec .top h1 {
+  color: white;
+}
+.example {
+  display: flex;
+  justify-content: space-between;
+}
+.example .r {
+  text-align: right;
+}
+h5 {
+  color: grey;
+}
+.negative {
+  color: #f44336;
+}
+.positive {
+  color: green;
+}
+
+/*Visualizations Recurring Bills*/
+.visRec {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+}
+.vis,
+.rec {
+  background: white;
+  border-radius: 1rem;
+  padding: 1rem;
+}
+body.dark .vis,
+body.dark .rec {
+  background: var(--divsD);
+  color: white;
+}
+/*VISUALIZATIONS*/
+.vis {
+  padding-block: 0rem;
+}
+.vis .top {
+  padding-top: 1rem;
+}
+.graph {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.graphInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.graphInfo div {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 1rem;
+}
+.graphArea {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+}
+.surplus {
+  width: 100%;
+  display: flex;
+  gap: 1rem;
+  background: green;
+  color: white;
+  padding: 0.5rem;
+}
+.expenses {
+  width: 100%;
+  display: flex;
+  gap: 1rem;
+  background: #f44336;
+  color: white;
+  padding: 0.5rem;
+}
+.surplus h2,
+.expenses h2 {
+  text-align: right;
+}
+/*RECURRING BILLS*/
+.bills div {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.25rem;
+  gap: 0.5rem;
+  padding: 0.35rem;
+  border-radius: 0.5rem;
+  border: 2px solid #aaaaaa;
+}
+
+/*ANIMATED*/
+h3 {
+  color: var(--accentL);
+  transition: all 200ms ease-in;
+}
+body.dark h3 {
+  color: var(--accentD);
+}
+h3:hover {
+  opacity: 0.5;
+  scale: 1.1;
+  cursor: pointer;
+  transition: all 200ms ease-in;
+}
+.active {
+  background: var(--accentL);
+  border-radius: 0.5rem;
+  color: black;
+}
+body.dark .active {
+  background: var(--accentD);
+}
+a:hover {
+  background: var(--accentL);
+  color: #dddddd;
+  opacity: 0.6;
+  scale: 1.05;
+  transition: all 200ms ease-in;
+}
+body.dark a:hover {
+  background: var(--accentD);
+}
+button:hover {
+  scale: 1.05;
+  box-shadow: 1px 1px 2px #222222;
+  transition: all 200ms ease-in;
+}
+
+/*NOT BUILT PAGE*/
+.notBuilt {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  padding: 3rem;
+  gap: 1rem;
+  font-size: 2.5rem;
+  margin: auto;
+  text-align: center;
+}
+
+/*TRANSACTIONS PAGE*/
+.addTransactionInputs {
+  width: 100%;
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+}
+.addTransactionInputs div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+.addTransactionInputs label {
+  font-size: 1.25rem;
+  color: lightgrey;
+}
+/*FORM*/
+
+form {
+  display: flex;
+  background: var(--accentL);
+  outline: 5px var(--accentL) solid;
+  border: 1px var(--accentL) solid;
+  border-radius: 0.5rem;
+}
+body.dark form {
+  background: var(--accentD);
+  outline: 5px var(--accentD) solid;
+  border: 1px var(--accentD) solid;
+}
+form span {
+  color: white;
+  font-size: 1.25rem;
+  padding: 0.5rem;
+}
+.addTransactionInputs input,
+.addTransactionInputs select {
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 1.25rem;
+  outline: 5px var(--accentL) solid;
+  border: 1px var(--accentL) solid;
+  border-radius: 0.5rem;
+}
+body.dark .addTransactionInputs input,
+body.dark .addTransactionInputs select {
+  outline: 5px var(--accentD) solid;
+  border: 1px var(--accentD) solid;
+  background: var(--navD);
+  color: white;
+}
+.addTransactionInputs button {
+  font-size: 1rem;
+  background: var(--accentL);
+  color: white;
+  height: 4rem;
+  padding: 0.5rem;
+  border-radius: 1rem;
+  margin-top: 1.25rem;
+  transition: all 200ms ease-in;
+}
+body.dark .addTransactionInputs button {
+  background: var(--accentD);
+}
+/*TABLE*/
+.transTable {
+  background: white;
+  gap: 0.25rem;
+  border-collapse: collapse;
+  border-radius: 2rem;
+  padding: 1rem;
+  text-align: center;
+}
+body.dark .transTable {
+  background: #1e1e3e;
+  color: white;
+}
+.transTable th {
+  color: white;
+  background: var(--accentL);
+  padding: 0.75rem;
+  border-collapse: collapse;
+  font-size: 1.5rem;
+}
+body.dark .transTable th {
+  background: var(--accentD);
+}
+.transTable tr {
+  border-collapse: collapse;
+  font-size: 1.25rem;
+  height: 3rem;
+}
+.transTable tr:last-child {
+  border-radius: 0 0 2rem 2rem;
+}
+.transTable tr:nth-child(even) {
+  background: #eeeeee;
+}
+body.dark .transTable tr:nth-child(even) {
+  background: var(--navD);
+}
+
+/*RECURRING BILLS PAGE*/
+.recTop {
+  display: flex;
+  justify-content: space-between;
+}
+.recTop h1 {
+  color: white;
+}
+.filters {
+  display: flex;
+  justify-content: space-between;
+  width: 35%;
+}
+.filters select {
+  width: 100%;
+  font-size: 1.5rem;
+  display: flex;
+  padding: 0.5rem;
+}
+/*BILLS SETUP*/
+.container {
+  margin: -0.75rem 2rem 1rem 2rem;
+  padding: 1rem;
+  border-radius: 1rem;
+  background: #003366;
+}
+body.dark .container {
+  background: var(--navD);
+}
+.monthLabel {
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.labels {
+  display: grid;
+  grid-template-columns: 1fr 1fr 0.8fr;
+  font-size: 1.1rem;
+  width: 49%;
+  gap: 5px;
+  text-align: center;
+  margin-top: 0.5rem;
+}
+
+/*BILLS*/
+.recBills {
+  background: white;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 50% 5px 1fr 5px 1fr 5px 0.75fr;
+  gap: 0.5rem;
+  padding-right: 0.5rem;
+  font-size: 1.5rem;
+  border-radius: 1rem;
+  align-items: center;
+  text-align: center;
+}
+body.dark .recBills {
+  color: white;
+  background: var(--bodyD);
+}
+.nameAmount {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+.vr {
+  background: var(--accentL);
+  height: 70%;
+}
+body.dark .vr {
+  background: var(--accentD);
+  border: 2px solid var(--accentD);
+}
+.paymentInfo {
+  margin-top: 0.75rem;
+  font-size: 1rem;
+}
+.paymentInfo hr {
+  margin-top: 0.25rem;
+  margin-bottom: -0.25rem;
+}
+.paymentInfo span {
+  color: var(--accentL);
+  font-weight: 700;
+}
+body.dark .paymentInfo span {
+  color: var(--accentD);
+}
+
+@media only screen and (max-width: 800px) {
+  body {
+    flex-direction: column;
+    height: auto;
+  }
+
+  nav {
+    max-width: 100%;
+    padding: 1rem 1rem 0 1rem;
+    height: 50%;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .hamburger {
+    display: inline;
+  }
+  .hamburger:hover {
+    cursor: pointer;
+  }
+  .JPMC {
+    display: flex;
+    justify-content: space-between;
+    font-size: 2rem;
+  }
+  .hidden {
+    display: none;
+  }
+  .options a {
+    font-size: 1.25rem;
+    padding: 0.25rem;
+  }
+  nav button {
+    font-size: 1rem;
+    padding: 0.25rem;
+  }
+  .user {
+    font-size: 1rem;
+    padding-bottom: 1rem;
+  }
+  .user img {
+    width: 40px;
+  }
+
+  h1,
+  .top h1 {
+    font-size: 1.5rem;
+  }
+  h2,
+  h3,
+  h4 {
+    font-size: 1rem;
+  }
+  h5 {
+    font-size: 0.75rem;
+  }
+
+  .dashboard {
+    width: 100%;
+    padding: 0.5rem;
+  }
+  select {
+    font-size: 1rem;
+    padding: 0.25rem;
+  }
+  .balIncExp {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+  .balIncExp div {
+    font-size: 1rem;
+    padding: 0.75rem;
+  }
+  .transVisRec {
+    grid-template-columns: 1fr;
+  }
+  .trans,
+  .vis,
+  .rec {
+    padding: 0.5rem;
+  }
+  .trans h1,
+  .vis h1,
+  .rec h1 {
+    font-size: 1.25rem;
+  }
+  .example {
+    font-size: 0.85rem;
+  }
+  .visRec {
+    gap: 1rem;
+  }
+  .graphArea {
+    padding-left: 1rem;
+    padding-top: 0.5rem;
+  }
+  .graphInfo div {
+    padding: 0.25rem;
+  }
+  .bills div {
+    font-size: 1rem;
+    padding: 0.25rem;
+  }
+  .vis .top {
+    padding-top: 0;
+  }
+  .rec h4 {
+    font-size: 1.25rem;
+  }
+  .rec div {
+    padding-block: 0.5rem;
+  }
+
+  #transactions {
+    width: 100%;
+    text-align: center;
+  }
+  .addTransactionInputs {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  .addTransactionInputs button {
+    font-size: 1.5rem;
+    margin-bottom: 3rem;
+  }
+  .transTable {
+    display: none;
+  }
+
+  .recTop {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .recTop h1 {
+    color: white;
+    text-align: center;
+  }
+  .filters {
+    justify-content: space-between;
+    width: 100%;
+  }
+  .filters select {
+    font-size: 1.25rem;
+    padding: 0.45rem;
+  }
+  .container {
+    margin: 0 0.5rem 1rem 0.5rem;
+  }
+  .labels {
+    display: none;
+  }
+  .category {
+    display: none;
+  }
+  .vr {
+    display: none;
+  }
+  .paymentInfo {
+    display: none;
+  }
+  .monthLabel {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+  .recBills {
+    padding: 0.75rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem;
+    height: auto;
+  }
+  .recBills h4 {
+    font-size: 0.9rem;
+  }
+  .nameAmount {
+    padding-left: 0rem;
+    align-items: center;
+    gap: 1rem;
+    width: 80%;
+  }
+}

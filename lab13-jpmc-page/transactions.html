@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="icon"
+      href="https://www.jpmorganchase.com/etc.clientlibs/cws/clientlibs/clientlib-base/resources/jpmc/images/jpmc-favicon-57.png"
+    />
+    <title>Transactions</title>
+    <link rel="stylesheet" href="/style.css" />
+    <script src="/script.js" defer></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  </head>
+  <body>
+    <nav>
+      <div class="top">
+        <h1 class="JPMC">
+          JPMorganChase
+          <div class="hamburger" id="hamburger">&#9776;</div>
+        </h1>
+
+        <div class="options hidden" id="navLinks">
+          <a href="index.html">Overview</a>
+          <a href="transactions.html" class="active">Transactions</a>
+          <a href="notBuilt.html">Visualizations</a>
+          <a href="recurringBills.html">Recurring Bills</a>
+          <a href="notBuilt.html">Saving</a>
+        </div>
+      </div>
+
+      <div class="bottom">
+        <div class="modeSwitch hidden">
+          <label>Dark Mode</label>
+          <input type="checkbox" name="modeSwitch" id="checkbox" />
+        </div>
+        <div class="user hidden">
+          <img
+            src="https://ohsobserver.com/wp-content/uploads/2022/12/Guest-user.png"
+            alt="Image of User icon"
+          />
+          <span>JPMC User</span>
+        </div>
+      </div>
+    </nav>
+    <div class="dashboard">
+      <div class="top">
+        <h1 id="transactions">Transactions</h1>
+      </div>
+
+      <div class="addTransactionInputs">
+        <div class="transName">
+          <label>Name:</label>
+          <input type="text" placeholder="Transaction Name" />
+        </div>
+
+        <div class="transAmount">
+          <label>Amount:</label>
+          <form>
+            <span class="span">$</span
+            ><input type="number" placeholder="123.45" />
+          </form>
+        </div>
+
+        <div class="transDate">
+          <label>Date:</label>
+          <input type="number" placeholder="MM/DD/YYYY" />
+        </div>
+
+        <div class="transCat">
+          <label>Category:</label>
+          <select name="transCat" id="transCat">
+            <option value="select">Select...</option>
+            <option value="grocery">Grocery</option>
+            <option value="transportation">Transportation</option>
+            <option value="housing">Housing</option>
+            <option value="education">Education</option>
+            <option value="e-commerce">E-commerce</option>
+            <option value="job">Job</option>
+            <option value="entertainment">Entertainment</option>
+            <option value="misc">Misc.</option>
+            <option value="addNew">Add new</option>
+          </select>
+        </div>
+
+        <button>Add Transaction</button>
+      </div>
+
+      <table class="transTable" style="width: 100%">
+        <tr>
+          <th style="width: 30%">Name</th>
+          <th style="width: 20%">Amount</th>
+          <th style="width: 20%">Date</th>
+          <th style="width: 30%">Category</th>
+        </tr>
+        <tr>
+          <td style="width: 30%">Chicago Transit Authority (CTA)</td>
+          <td style="width: 20%" class="negative">-$2.50</td>
+          <td style="width: 20%">09/12/24</td>
+          <td style="width: 30%">Transportation</td>
+        </tr>
+        <tr>
+          <td style="width: 30%">Jewel</td>
+          <td style="width: 20%" class="negative">-$50.86</td>
+          <td style="width: 20%">09/10/24</td>
+          <td style="width: 30%">Grocery</td>
+        </tr>
+        <tr>
+          <td style="width: 30%">Venmo: John Smith</td>
+          <td style="width: 20%" class="positive">+$400.00</td>
+          <td style="width: 20%">09/10/24</td>
+          <td style="width: 30%">Job</td>
+        </tr>
+        <tr>
+          <td style="width: 30%">Netflix</td>
+          <td style="width: 20%" class="negative">-$6.99</td>
+          <td style="width: 20%">09/06/24</td>
+          <td style="width: 30%">Entertainment</td>
+        </tr>
+        <tr>
+          <td style="width: 30%">Lake Meadows</td>
+          <td style="width: 20%" class="negative">-$1,020.00</td>
+          <td style="width: 20%">09/01/24</td>
+          <td style="width: 30%">Housing</td>
+        </tr>
+        <tr>
+          <td style="width: 30%">Amazon</td>
+          <td style="width: 20%" class="positive">+$23.47</td>
+          <td style="width: 20%">08/31/24</td>
+          <td style="width: 30%">E-commerce</td>
+        </tr>
+        <tr>
+          <td style="width: 30%">Illinois Institute of Technology</td>
+          <td style="width: 20%" class="negative">-$25,000.00</td>
+          <td style="width: 20%">08/31/24</td>
+          <td style="width: 30%">Education</td>
+        </tr>
+        <tr>
+          <td style="width: 30%">Starbucks</td>
+          <td style="width: 20%" class="negative">-$4.75</td>
+          <td style="width: 20%">08/31/24</td>
+          <td style="width: 30%">Grocery</td>
+        </tr>
+        <tr>
+          <td style="width: 30%">Amazon</td>
+          <td style="width: 20%" class="negative">-$23.47</td>
+          <td style="width: 20%">08/25/24</td>
+          <td style="width: 30%">E-commerce</td>
+        </tr>
+        <tr>
+          <td style="width: 30%">Venmo: Sarah</td>
+          <td style="width: 20%" class="negative">-$20.00</td>
+          <td style="width: 20%">08/23/24</td>
+          <td style="width: 30%">Misc.</td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="icon"
+      href="https://www.jpmorganchase.com/etc.clientlibs/cws/clientlibs/clientlib-base/resources/jpmc/images/jpmc-favicon-57.png"
+    />
+    <title>Recurring Bills</title>
+    <link rel="stylesheet" href="/style.css" />
+    <script src="/script.js" defer></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  </head>
+  <body>
+    <nav>
+      <div class="top">
+        <h1 class="JPMC">
+          JPMorganChase
+          <div class="hamburger" id="hamburger">&#9776;</div>
+        </h1>
+
+        <div class="options hidden" id="navLinks">
+          <a href="index.html">Overview</a>
+          <a href="transactions.html">Transactions</a>
+          <a href="notBuilt.html">Visualizations</a>
+          <a href="recurringBills.html" class="active">Recurring Bills</a>
+          <a href="notBuilt.html">Saving</a>
+        </div>
+      </div>
+
+      <div class="bottom">
+        <div class="modeSwitch hidden">
+          <label>Dark Mode</label>
+          <input type="checkbox" name="modeSwitch" id="checkbox" />
+        </div>
+        <div class="user hidden">
+          <img
+            src="https://ohsobserver.com/wp-content/uploads/2022/12/Guest-user.png"
+            alt="Image of User icon"
+          />
+          <span>JPMC User</span>
+        </div>
+      </div>
+    </nav>
+    <div class="dashboard">
+      <div class="recTop">
+        <h1>Recurring Bills</h1>
+
+        <div class="filters">
+          <div class="recInt">
+            <select name="recInt" id="recInt">
+              <option value="allIntervals">All Intervals</option>
+              <option value="daily">Daily</option>
+              <option value="weekly">Weekly</option>
+              <option value="bi-weekly">Bi-weekly</option>
+              <option value="monthly">Monthly</option>
+              <option value="quarterly">Quarterly</option>
+              <option value="bi-annual">Bi-annual</option>
+              <option value="annual">Annual</option>
+              <option value="custom">Custom</option>
+              <option value="addNew">Add new</option>
+            </select>
+          </div>
+
+          <div class="recCat">
+            <select name="recCat" id="recCat">
+              <option value="allCategories">All Categories</option>
+              <option value="grocery">Grocery</option>
+              <option value="transportation">Transportation</option>
+              <option value="housing">Housing</option>
+              <option value="education">Education</option>
+              <option value="e-commerce">E-commerce</option>
+              <option value="job">Job</option>
+              <option value="entertainment">Entertainment</option>
+              <option value="misc">Misc.</option>
+              <option value="addNex">Add new</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="month">
+          <div class="monthLabel">
+            <h2>September 2024</h2>
+            <div class="labels">
+              <h4 class="i">Interval:</h4>
+              <h4 class="c">Category:</h4>
+              <h4 class="p">Info:</h4>
+            </div>
+          </div>
+          <div class="recBills">
+            <div class="nameAmount">
+              <h4>Netflix</h4>
+              <h4>$6.99</h4>
+            </div>
+
+            <span class="vr"></span>
+
+            <div class="interval">
+              <h4>Monthly</h4>
+            </div>
+
+            <span class="vr"></span>
+
+            <div class="category">
+              <h4>Entertain...</h4>
+            </div>
+
+            <span class="vr"></span>
+
+            <div class="paymentInfo">
+              <div class="p">
+                <h5><span>Paid: </span>09/06/24</h5>
+                <hr />
+              </div>
+              <div class="d">
+                <h5><span>Due: </span>09/06/24</h5>
+                <hr />
+              </div>
+              <div class="n">
+                <h5><span>Next: </span>10/06/24</h5>
+              </div>
+            </div>
+          </div>
+          <div class="recBills">
+            <div class="nameAmount">
+              <h4>Lake Meadows</h4>
+              <h4>$1,020.00</h4>
+            </div>
+
+            <span class="vr"></span>
+
+            <div class="interval adjustLakeMeadows">
+              <h4>Monthly</h4>
+            </div>
+
+            <span class="vr"></span>
+
+            <div class="category">
+              <h4>Housing</h4>
+            </div>
+
+            <span class="vr"></span>
+
+            <div class="paymentInfo">
+              <div class="p">
+                <h5><span>Paid: </span>09/01/24</h5>
+                <hr />
+              </div>
+              <div class="d">
+                <h5><span>Due: </span>09/01/24</h5>
+                <hr />
+              </div>
+              <div class="n">
+                <h5><span>Next: </span>10/01/24</h5>
+              </div>
+            </div>
+          </div>
+          <div class="recBills">
+            <div class="nameAmount">
+              <h4>GEICO</h4>
+              <h4>$174.99</h4>
+            </div>
+
+            <span class="vr"></span>
+
+            <div class="interval">
+              <h4>Monthly</h4>
+            </div>
+
+            <span class="vr"></span>
+
+            <div class="category">
+              <h4>Insurance</h4>
+            </div>
+
+            <span class="vr"></span>
+
+            <div class="paymentInfo">
+              <div class="p">
+                <h5><span>Paid: </span>09/01/24</h5>
+                <hr />
+              </div>
+              <div class="d">
+                <h5><span>Due: </span>09/01/24</h5>
+                <hr />
+              </div>
+              <div class="n">
+                <h5><span>Next: </span>10/01/24</h5>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="month">
+          <div class="monthLabel" style="margin-top: 1.75rem">
+            <h2>August 2024</h2>
+            <div class="labels">
+              <h4 class="i">Interval:</h4>
+              <h4 class="c">Category:</h4>
+              <h4 class="p">Info:</h4>
+            </div>
+          </div>
+          <div class="recBills">
+            <div class="nameAmount">
+              <h4>Illinois Institute of Technology</h4>
+              <h4>$25,000.00</h4>
+            </div>
+
+            <span class="vr"></span>
+
+            <div class="interval">
+              <h4>Custom</h4>
+            </div>
+
+            <span class="vr"></span>
+
+            <div class="category">
+              <h4>Education</h4>
+            </div>
+
+            <span class="vr"></span>
+
+            <div class="paymentInfo">
+              <div class="p">
+                <h5><span>Paid: </span>08/31/24</h5>
+                <hr />
+              </div>
+              <div class="d">
+                <h5><span>Due: </span>09/06/24</h5>
+                <hr />
+              </div>
+              <div class="n">
+                <h5><span>Next: </span>02/06/24</h5>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

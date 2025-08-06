@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="icon"
+      href="https://www.jpmorganchase.com/etc.clientlibs/cws/clientlibs/clientlib-base/resources/jpmc/images/jpmc-favicon-57.png"
+    />
+    <title>Overview</title>
+    <link rel="stylesheet" href="/style.css" />
+    <script src="/script.js" defer></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  </head>
+  <body>
+    <nav>
+      <div class="top">
+        <h1 class="JPMC">
+          JPMorganChase
+          <div class="hamburger" id="hamburger">&#9776;</div>
+        </h1>
+
+        <div class="options hidden" id="navLinks">
+          <a href="index.html" class="active">Overview</a>
+          <a href="transactions.html">Transactions</a>
+          <a href="notBuilt.html">Visualizations</a>
+          <a href="recurringBills.html">Recurring Bills</a>
+          <a href="notBuilt.html">Saving</a>
+        </div>
+      </div>
+
+      <div class="bottom">
+        <button class="hidden">
+          <a href="transactions.html" class="addBtn">ADD TRANSACTION</a>
+        </button>
+        <div class="modeSwitch hidden">
+          <label>Dark Mode</label>
+          <input type="checkbox" name="modeSwitch" id="checkbox" />
+        </div>
+        <div class="user hidden">
+          <img
+            src="https://ohsobserver.com/wp-content/uploads/2022/12/Guest-user.png"
+            alt="Image of User icon"
+          />
+          <span>JPMC User</span>
+        </div>
+      </div>
+    </nav>
+    <div class="dashboard">
+      <div class="top">
+        <h1>Overview</h1>
+        <select name="overviewInterval" id="overviewInterval">
+          <option value="weekly">Weekly</option>
+          <option value="bi-weekly" selected>Bi-weekly</option>
+          <option value="monthly">Monthly</option>
+          <option value="annually">Annually</option>
+        </select>
+      </div>
+      <div class="content">
+        <div class="balIncExp">
+          <div>
+            <label>Balance:</label>
+            <p>$4,923.56</p>
+          </div>
+
+          <div>
+            <label>Income:</label>
+            <p>$400.00</p>
+          </div>
+
+          <div>
+            <label>Expenses:</label>
+            <p>$346.42</p>
+          </div>
+        </div>
+
+        <div class="transVisRec">
+          <div class="trans">
+            <div class="top">
+              <h1>Transactions</h1>
+              <h3>view all>></h3>
+            </div>
+
+            <hr style="background: black; height: 0.2rem" />
+
+            <div class="example">
+              <div class="l">
+                <div class="exCat">
+                  <h4>Chicago Transit Authority(CTA)</h4>
+                  <h5>Transportation</h5>
+                </div>
+              </div>
+              <div class="r">
+                <h4 class="negative">-$2.50</h4>
+                <h5>09/12/24</h5>
+              </div>
+            </div>
+
+            <hr style="margin-top: -1rem" />
+
+            <div class="example">
+              <div class="l">
+                <div class="exCat">
+                  <h4>Jewel</h4>
+                  <h5>Grocery</h5>
+                </div>
+              </div>
+              <div class="r">
+                <h4 class="negative">-$50.86</h4>
+                <h5>09/10/24</h5>
+              </div>
+            </div>
+
+            <hr style="margin-top: -1rem" />
+
+            <div class="example">
+              <div class="l">
+                <div class="exCat">
+                  <h4>Venmo: John Smith</h4>
+                  <h5>Tutor Job</h5>
+                </div>
+              </div>
+              <div class="r">
+                <h4 class="positive">+$400.00</h4>
+                <h5>09/10/24</h5>
+              </div>
+            </div>
+
+            <hr style="margin-top: -1rem" />
+
+            <div class="example">
+              <div class="l">
+                <div class="exCat">
+                  <h4>Netflix</h4>
+                  <h5>Entertainment</h5>
+                </div>
+              </div>
+              <div class="r">
+                <h4 class="negative">-$6.99</h4>
+                <h5>09/06/24</h5>
+              </div>
+            </div>
+
+            <hr style="margin-top: -1rem" />
+
+            <div class="example">
+              <div class="l">
+                <div class="exCat">
+                  <h4>Lake Meadows</h4>
+                  <h5>Housing</h5>
+                </div>
+              </div>
+              <div class="r">
+                <h4 class="negative">-$1,020.00</h4>
+                <h5>09/01/24</h5>
+              </div>
+            </div>
+
+            <hr style="margin-top: -1rem" />
+
+            <div class="example">
+              <div class="l">
+                <div class="exCat">
+                  <h4>Amazon</h4>
+                  <h5>Return</h5>
+                </div>
+              </div>
+              <div class="r">
+                <h4 class="positive">+$23.47</h4>
+                <h5>08/31/24</h5>
+              </div>
+            </div>
+          </div>
+          <div class="visRec">
+            <div class="vis">
+              <div class="top">
+                <h1>Income v. Expenses</h1>
+                <h3>see details>></h3>
+              </div>
+              <div class="graph">
+                <div class="graphArea">
+                  <div id="graphDiv"></div>
+                  <script>
+                    var data = [
+                      {
+                        values: [326.08, 346.42],
+                        labels: ["Expenses", "Surplus"],
+                        type: "pie",
+                        marker: {
+                          colors: ["#F44336", "green"],
+                        },
+                      },
+                    ];
+
+                    var layout = {
+                      title: "Income vs Expenses",
+                      xaxis: { title: "Category" },
+                      yaxis: { title: "Amount ($)" },
+                      height: 140,
+                      width: 140,
+                      showlegend: false,
+                      paper_bgcolor: "rgba(0,0,0,0)",
+                      plot_bgcolor: "rgba(0,0,0,0)",
+                      margin: {
+                        l: 0,
+                        r: 0,
+                        b: 0,
+                        t: 0,
+                      },
+                    };
+
+                    Plotly.newPlot("graphDiv", data, layout);
+                  </script>
+                </div>
+                <div class="graphInfo">
+                  <div class="surplus">
+                    <h4>Surplus:</h4>
+                    <h2>$326.08</h2>
+                  </div>
+                  <div class="expenses">
+                    <h4>Expenses:</h4>
+                    <h2>$346.42</h2>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="rec">
+              <div class="top">
+                <h1>Recurring Bills</h1>
+                <h3>edit>></h3>
+              </div>
+              <div class="bills">
+                <div class="bill1">
+                  <h4>Housing</h4>
+                  <h4>$1,020.00</h4>
+                </div>
+                <div class="bill2">
+                  <h4>Insurance</h4>
+                  <h4>$175.00</h4>
+                </div>
+                <div class="bill3">
+                  <h4>Entertainment</h4>
+                  <h4>$6.99</h4>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
